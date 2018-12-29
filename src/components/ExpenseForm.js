@@ -2,8 +2,6 @@ import React from 'react';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
 
-const now = moment();
-
 export default class ExpenseForm extends React.Component {
   constructor(props) {
     super(props);
@@ -14,6 +12,7 @@ export default class ExpenseForm extends React.Component {
       amount: props.expense ? props.expense.amount.toString() : '',
       createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
       calendarFocused: false,
+      edit: props.edit ? true : false,
       error: ''
     };
   }
@@ -97,7 +96,7 @@ export default class ExpenseForm extends React.Component {
             onChange={this.onNoteChange}
             placeholder="Add a note for your expense (optional)"
           />
-          <button>Add expense</button>
+          <button>{this.state.edit ? 'Edit expense' : 'Add expense'}</button>
         </form>
       </div>
     );
