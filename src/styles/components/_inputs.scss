@@ -1,0 +1,12 @@
+.text-input {
+    border: 1px solid #cacccd;
+    height: 5rem;
+    font-size: $font-size-lg;
+    font-weight: 300;
+    padding: $s-size;
+}
+
+.textarea {
+    @extend .text-input;
+    height: 10rem;
+}
